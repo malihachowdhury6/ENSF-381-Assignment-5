@@ -1,0 +1,35 @@
+.cart-item {
+	display: flex;
+	flex-direction: column;
+}
+p {
+	margin: 1px;
+	text-align: left;
+}
+.remove-item {
+	margin: 0px;
+	width: 25%;
+}
+.item-image {
+	float: left;
+	width: 70%;
+}
+
+.product-item {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	width: 30%;
+}
+
+.product-img {
+	width: 100%;
+}
+
+.product-btn {
+	width: 40%;
+}
+
+.cart {
+	width: 45%;
+}

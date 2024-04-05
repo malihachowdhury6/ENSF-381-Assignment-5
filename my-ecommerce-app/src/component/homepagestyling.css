@@ -1,0 +1,40 @@
+main {
+	padding: 5px;
+	margin: 20px, 0;
+}
+
+.header {
+	display: flex;
+	padding: 5px;
+	margin: 10px 0;
+	justify-content: space-between;
+}
+
+.company-name {
+	text-align: right;
+}
+
+nav {
+	display: flex;
+	padding: 5px;
+	margin: 10px 0;
+	justify-content: space-between;
+}
+
+.shop-now {
+	padding-bottom: 25px;
+}
+
+footer {
+	padding: 10px;
+	margin: 0;
+	text-align: left;
+}
+.about-us,
+.shop-now,
+.customer-reviews {
+	margin-top: 20px;
+}
+.review p {
+	margin-bottom: 20px;
+}
