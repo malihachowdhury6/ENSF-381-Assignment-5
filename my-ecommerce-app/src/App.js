@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
-import Homepage from './component/Homepage.js';
-import Productpage from './component/Productpage.js';
+import Homepage from './components/Homepage.js';
+import Productpage from './components/Productpage.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './components/LoginPage'; // Import the LoginPage component
 
