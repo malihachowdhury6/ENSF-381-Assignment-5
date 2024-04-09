@@ -8,6 +8,25 @@ import "./productstyling.css";
 const Productpage = () => {
 	const [itemsInCart, setItemsInCart] = useState([]);
 	const [reload, setReload] = useState(true);
+	const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+		fetchProducts();}, 
+    []);
+
+	const fetchProducts = async () => {
+		try {
+		  const response = await fetch('http://localhost:5001/products');
+		  if (!response.ok) {
+			throw new Error('Failed to fetch products');
+		  }
+		  const data = await response.json();
+		  setProducts(data);
+		} catch (error) {
+		  console.error('Error fetching products:', error.message);
+		}
+	  };
+	  
 	useEffect(() => {
 		const data = localStorage.getItem("itemsInCart");
 		const storedCartItems = data ? JSON.parse(data) : [];
@@ -59,7 +78,7 @@ const Productpage = () => {
 			<table>
 				<tr>
 					<td>
-						<ProductList onAddToCart={handleAddToCart} />
+						<ProductList products={products} onAddToCart={handleAddToCart} />
 					</td>
 					<td className="cart" style={{ verticalAlign: "top" }}>
 						<h2>Shopping Cart</h2>
