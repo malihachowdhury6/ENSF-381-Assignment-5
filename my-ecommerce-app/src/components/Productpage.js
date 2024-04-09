@@ -72,6 +72,7 @@ const Productpage = () => {
 		setItemsInCart([...itemsInCart]);
 	};
 
+	
 	return (
 		<div className="product-page">
 			<Header />
