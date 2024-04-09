@@ -83,40 +83,30 @@ users = []
 # Define the route for user registration
 @app.route('/register', methods=['POST'])
 def register_user():
-    # Get the registration data from the request body
     registration_data = request.get_json()
     
-    # Extract username, password, and email from the registration data
     username = registration_data.get('username')
     password = registration_data.get('password')
     email = registration_data.get('email')
     
-    # Check if the username already exists in the list of users
     for user in users:
         if user['username'] == username:
-            return jsonify({'error': 'Username already exists'}), 400
+            return jsonify({'success': False, 'message': 'error': 'Username already exists'}), 400
     
     # Add the new user to the list
-    users.append({
-        'username': username,
-        'password': password,
-        'email': email
-    })
+    new_dict = {'username': username, 'password': password, 'email': email}
+    users.append({new_dict})
     
-    # Return a success message
-    return jsonify({'message': 'User registered successfully'}), 200
+    return jsonify({'success': True, 'message': 'User registered successfully'}), 200
 
 # Define the route for user authentication
-@app.route('/login', methods=['POST'])
+@app.route('/user-auth', methods=['POST'])
 def authenticate_user():
-    # Get the login data from the request body
     login_data = request.get_json()
     
-    # Extract username and password from the login data
     username = login_data.get('username')
     password = login_data.get('password')
     
-    # Check if the username exists in the list of users
     for user in users:
         if user['username'] == username and user['password'] == password:
             # Redirect the user to the Product page if credentials are correct
@@ -126,9 +116,13 @@ def authenticate_user():
     return jsonify({'error': 'Incorrect username or password'}), 401
 
 # Define the route for getting product information
-@app.route('/products', methods=['GET'])
+@app.route('/Products', methods=['GET'])
 def get_products():
     return jsonify(products)
+
+@app.route('/users', methods=['GET'])
+def userss():
+    return jsonify(users)
 
 
 if __name__ == '__main__':

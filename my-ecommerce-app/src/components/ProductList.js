@@ -7,11 +7,6 @@ const ProductList = ({ onAddToCart }) => {
 
   useEffect(() => {
     // Fetch product data from the backend API endpoint
-    fetchProducts()
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error("Error fetching products:", error));
-  }, []);
 
   const fetchProducts = async () => {
     try {
@@ -24,7 +19,11 @@ const ProductList = ({ onAddToCart }) => {
     } catch (error) {
       console.error('Error fetching products:', error.message);
     }
-  };
+  }; 
+  
+  fetchProducts();
+  }, []);
+
 
   return (
     <div className="product-list">
